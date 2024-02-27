@@ -29,53 +29,53 @@
 
 // 4. Add click event listeners to the start and stop buttons, calling the respective functions when clicked
 
-// function createChangerColor({ btnStartEl, btnStopEl, bodyEl }) {
-//   let onChange = null;
+function createChangerColor({ btnStartEl, btnStopEl, bodyEl }) {
+  let onChange = null;
 
-//   function getRandomHexColor() {
-//     let letters = '0123456789ABCDEF';
-//     let color = '#';
-//     for (let i = 0; i < 6; i++) {
-//       color += letters[Math.floor(Math.random() * 16)];
-//     }
-//     return color;
-//   }
+  function getRandomHexColor() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 
-//   function btnToggle(btn) {
-//     btn.disabled = !btn.disabled;
-//   }
+  function btnToggle(btn) {
+    btn.disabled = !btn.disabled;
+  }
 
-//   function start() {
-//     btnToggle(btnStartEl);
-//     btnToggle(btnStopEl);
+  function start() {
+    btnToggle(btnStartEl);
+    btnToggle(btnStopEl);
 
-//     onChange = setInterval(() => {
-//       bodyEl.style.backgroundColor = getRandomHexColor();
-//     }, 1000);
-//   }
+    onChange = setInterval(() => {
+      bodyEl.style.backgroundColor = getRandomHexColor();
+    }, 1000);
+  }
 
-//   function stop() {
-//     btnToggle(btnStopEl);
-//     btnToggle(btnStartEl);
+  function stop() {
+    btnToggle(btnStopEl);
+    btnToggle(btnStartEl);
 
-//     clearInterval(onChange);
-//   }
+    clearInterval(onChange);
+  }
 
-//   // Initialize
-//   btnToggle(btnStopEl);
+  // Initialize
+  btnToggle(btnStopEl);
 
-//   // Return an object to expose the start and stop functions
-//   return { start, stop };
-// }
+  // Return an object to expose the start and stop functions
+  return { start, stop };
+}
 
-// // Usage
-// const refs = {
-//   btnStartEl: document.querySelector('button[data-start]'),
-//   btnStopEl: document.querySelector('button[data-stop]'),
-//   bodyEl: document.body,
-// };
+// Usage
+const refs = {
+  btnStartEl: document.querySelector('button[data-start]'),
+  btnStopEl: document.querySelector('button[data-stop]'),
+  bodyEl: document.body,
+};
 
-// const { start, stop } = createChangerColor(refs);
+const { start, stop } = createChangerColor(refs);
 
-// refs.btnStartEl.addEventListener('click', start);
-// refs.btnStopEl.addEventListener('click', stop);
+refs.btnStartEl.addEventListener('click', start);
+refs.btnStopEl.addEventListener('click', stop);
